@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday My Love</title>
+
+<style>
+:root{
+  --pink1:#ffe4ec;
+  --pink2:#ffb6c1;
+  --pink3:#ff8fab;
+  --ink:#5a2a3a;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:"Segoe UI", Inter, sans-serif;
+  background:linear-gradient(180deg,var(--pink1),#fff);
+  color:var(--ink);
+  overflow-x:hidden;
+}
+.section{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:24px;
+}
+.card{
+  max-width:560px;
+  width:100%;
+  background:#ffffffcc;
+  backdrop-filter:blur(12px);
+  border-radius:30px;
+  padding:28px;
+  text-align:center;
+  box-shadow:0 25px 60px rgba(255,140,180,.35);
+  animation:fade .8s ease;
+}
+.hidden{display:none}
+@keyframes fade{
+  from{opacity:0; transform:translateY(20px)}
+  to{opacity:1}
+}
+
+h1{margin:10px 0}
+.btn{
+  margin-top:18px;
+  padding:12px 26px;
+  border:none;
+  border-radius:999px;
+  background:linear-gradient(135deg,var(--pink2),var(--pink3));
+  color:white;
+  font-weight:600;
+  cursor:pointer;
+  transition:.25s;
+}
+.btn:hover{transform:translateY(-2px)}
+
+/* ===== SNOOPY ===== */
+.snoopy{
+  width:220px;
+  margin:18px auto;
+  display:block;
+  animation:snoopyIn 1.4s ease forwards, float 3s ease-in-out infinite;
+}
+@keyframes snoopyIn{
+  from{opacity:0; transform:scale(.6)}
+  to{opacity:1; transform:scale(1)}
+}
+@keyframes float{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-10px)}
+}
+
+/* ===== BUNGA ===== */
+.big-flower{
+  font-size:150px;
+  margin:20px 0;
+  animation:bloom 2.2s ease forwards, sway 3s ease-in-out infinite;
+}
+@keyframes bloom{
+  from{transform:scale(0); opacity:0}
+  to{transform:scale(1); opacity:1}
+}
+@keyframes sway{
+  0%,100%{transform:rotate(0)}
+  50%{transform:rotate(4deg)}
+}
+
+/* ===== FLOAT ===== */
+.float{
+  position:fixed;
+  bottom:-40px;
+  font-size:32px;
+  animation:up linear forwards;
+  pointer-events:none;
+}
+@keyframes up{
+  to{transform:translateY(-120vh) rotate(360deg); opacity:0}
+}
+
+/* ===== CAKE ===== */
+.cake-area{margin:22px auto; width:240px}
+.cake{
+  width:200px;
+  height:130px;
+  background:linear-gradient(180deg,#ffd1dc,#ff9eb5);
+  border-radius:26px;
+  position:relative;
+  margin:auto;
+  animation:cakeFloat 3s ease-in-out infinite;
+}
+@keyframes cakeFloat{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-8px)}
+}
+
+/* FIX ATAS KUE */
+.cake::before{
+  content:"";
+  position:absolute;
+  top:-30px;
+  left:50%;
+  transform:translateX(-50%);
+  width:100%;
+  height:55px;
+  background:
+    radial-gradient(circle at 20% 80%, #fff 0 14px, transparent 15px),
+    radial-gradient(circle at 50% 90%, #fff 0 16px, transparent 17px),
+    radial-gradient(circle at 80% 80%, #fff 0 14px, transparent 15px),
+    linear-gradient(180deg,#fff,#ffeef4);
+  border-radius:30px;
+}
+
+.candles{
+  position:absolute;
+  top:-55px;
+  width:100%;
+  display:flex;
+  justify-content:center;
+  gap:18px;
+}
+.candle{
+  width:12px;
+  height:44px;
+  background:repeating-linear-gradient(45deg,#ffd166 0 6px,#ffe29a 6px 12px);
+  border-radius:6px;
+  position:relative;
+  cursor:pointer;
+}
+.flame{
+  position:absolute;
+  top:-18px;
+  left:50%;
+  transform:translateX(-50%);
+  width:14px;
+  height:18px;
+  background:radial-gradient(circle at 50% 35%, #fff 0 35%, #ffb703 40%, #ff6b6b 70%);
+  border-radius:50%;
+  animation:flicker .15s infinite alternate;
+}
+@keyframes flicker{
+  from{transform:translateX(-50%) scale(1)}
+  to{transform:translateX(-50%) scale(.85)}
+}
+</style>
+</head>
+
+<body>
+
+<!-- HALAMAN 1 -->
+<section class="section">
+  <div class="card" id="p1">
+    <h1>Happy Birthday My Love 🎀</h1>
+
+    <img class="snoopy"
+      src="https://upload.wikimedia.org/wikipedia/en/5/53/Snoopy_Peanuts.png"
+      alt="Snoopy">
+
+    <button class="btn" onclick="go(2)">Next</button>
+  </div>
+</section>
+
+<!-- HALAMAN 2 -->
+<section class="section hidden" id="p2">
+  <div class="card">
+    <div class="big-flower">🌸</div>
+    <p><b>Haloo cintaku, klik dong biar ada yang muncul 💕</b></p>
+    <button class="btn" onclick="magic()">Klik aku</button>
+  </div>
+</section>
+
+<!-- HALAMAN 3 -->
+<section class="section hidden" id="p3">
+  <div class="card">
+    <div class="cake-area">
+      <div class="cake">
+        <div class="candles">
+          <div class="candle"><div class="flame"></div></div>
+          <div class="candle"><div class="flame"></div></div>
+          <div class="candle"><div class="flame"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <p style="text-align:left; line-height:1.6">
+      Happy Birthday Cantiku, karena kita jauh aku kasih ini dulu yaa sebagai hadiah,
+      i may not be the first you loved, the first who made your heart race,
+      or the first who made you believe in love, but i want to be the one who stays
+      when everything else fades. the one who proves that love can still be gentle,
+      true, and lasting. i may not be your first, but I want to be your forever.
+      <br><b>i love u sweetheart</b>
+    </p>
+
+    <p><b>Tiup lilinnya yaa 🕯️✨</b></p>
+  </div>
+</section>
+
+<script>
+function go(n){
+  p1.classList.add("hidden");
+  p2.classList.add("hidden");
+  p3.classList.add("hidden");
+  document.getElementById("p"+n).classList.remove("hidden");
+}
+
+function magic(){
+  for(let i=0;i<90;i++){
+    const el=document.createElement("div");
+    el.className="float";
+    el.textContent=Math.random()>0.5?"💖":"🌸";
+    el.style.left=Math.random()*100+"vw";
+    el.style.animationDuration=(4+Math.random()*4)+"s";
+    document.body.appendChild(el);
+    setTimeout(()=>el.remove(),9000);
+  }
+  setTimeout(()=>go(3),1200);
+}
+
+document.addEventListener("click",e=>{
+  if(!e.target.closest(".candle")) return;
+  document.querySelectorAll(".flame").forEach(f=>f.remove());
+});
+</script>
+
+</body>
+</html>
